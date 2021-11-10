@@ -129,8 +129,7 @@ void terp(const char* bf){
 	stack loop_stack = constr_stack(STACK_SIZE);
 	
 	while (ip < strlen(bf)){
-		char o = bf[ip];
-		switch (o){
+		switch (bf[ip]){
 			case '>':
 				++ptr;
 				break;
@@ -157,9 +156,7 @@ void terp(const char* bf){
 					// search for next ] token
 					int brackets = 1;
 					while (brackets){
-						ip++;
-						char o = bf[ip];
-						switch(o){
+						switch(bf[++ip]){
 							case '[':
 								++brackets;
 								break;
