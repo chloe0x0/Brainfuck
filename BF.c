@@ -186,6 +186,7 @@ void terp(const char* bf){
 		++ip;
 	}
 	free(MEM);
+	free(&loop_stack);
 }
 
 /* TODO
