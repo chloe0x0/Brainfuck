@@ -153,7 +153,7 @@ void terp(const char* bf){
 					push(&loop_stack, ip);
 				}
 				else{
-					// search for next ] token
+					// search for next matching ] token
 					int brackets = 1;
 					while (brackets){
 						switch(bf[++ip]){
