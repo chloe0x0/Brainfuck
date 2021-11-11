@@ -1,4 +1,4 @@
-# Brainfuck
+# Brainfuck 🧠 
 A simple yet functional Brainfuck interpreter in C.
 
 ## Brainfuck Programs
