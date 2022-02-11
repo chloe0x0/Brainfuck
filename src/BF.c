@@ -4,6 +4,7 @@
 
 #define MEM_LEN 30000
 #define STACK_SIZE 100
+#define MAX_CHAR 9999
 
 /*		
 	|| instruction Set ||
@@ -185,7 +186,6 @@ void terp(const char* bf){
 }
 
 /* TODO
-	Interpret .bf Files
 	Further test the interpreter
 	Pre-compute the jump table before interpreting the code
 */
@@ -193,18 +193,31 @@ void terp(const char* bf){
 // Brainfuck -f <filepath>
 // Brainfuck -i <string>
 int main(int argc, char* argv[]){
-	char* input;
-
 	if (!strcmp(argv[1], "-f")){
 		char* path = argv[2];
 
 		FILE *fp;
-		fp = fopen(path, "r");
-		fscanf(fp, "%s", input);
+		fp = fopen(argv[2], "r");
+		if (!fp){
+			fprintf(stderr, "Could not open file");
+			return -1;
+		}
 
+		fseek(fp, 0, SEEK_END);
+		long fsize = ftell(fp);
+		fseek(fp, 0, SEEK_SET);
+
+		char* input = malloc(fsize + 1);
+		fread(input, fsize, 1, fp);
+		input[fsize] = 0;
+		fclose(fp);
+
+		terp(input);
 	}else if (!strcmp(argv[1], "-i")){
-		input = argv[2];
-	}
+		char input[MAX_CHAR];
+		strncpy(input, argv[2], sizeof(input) - 1);
+		input[sizeof(input) - 1] = '\0';
 
-	terp(input);
+		terp(input);
+	}
 }
