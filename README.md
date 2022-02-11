@@ -26,10 +26,20 @@ A simple yet functional Brainfuck interpreter in C.
 -<+]-<<]
 ```
 
+### Usage
+From a terminal
+```
+Brainfuck.exe -i ++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.
+
+>>> Hello World!
+```
+
+Interpret files
+```
+Brainfuck.exe -f HelloWorld.bf
+
+>>> HelloWorld!
+```
 
 ## Todo
-> Interpret .bf files
->
-> Perform more stress tests
->
 > Add in optimizations such as pre-computing the jump table for loops.
