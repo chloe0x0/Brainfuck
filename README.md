@@ -38,7 +38,7 @@ Interpret files
 ```
 Brainfuck.exe -f HelloWorld.bf
 
->>> HelloWorld!
+>>> Hello World!
 ```
 
 ## Todo
