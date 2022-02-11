@@ -219,5 +219,8 @@ int main(int argc, char* argv[]){
 		input[sizeof(input) - 1] = '\0';
 
 		terp(input);
+	}else{
+		fprintf(stderr, "Invalid flag");
+		return -1;
 	}
 }
