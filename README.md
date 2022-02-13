@@ -43,3 +43,5 @@ Brainfuck.exe -f HelloWorld.bf
 
 ## Todo
 > Add in optimizations such as pre-computing the jump table for loops.
+
+> Clean up File I/O
